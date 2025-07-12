@@ -1,0 +1,584 @@
+/*
+      ============================================
+      Theme & Variable Declarations
+      ============================================
+    */
+:root {
+    --primary-color: #4e9f3d;
+    --secondary-color: #1e5128;
+    --accent-color: #d8e9a8;
+    --light-color: #f8f9fa;
+    --dark-color: #191a19;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    --card-hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/*
+      ============================================
+      General Body & Typography Styles
+      ============================================
+    */
+html {
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.section-title {
+    color: var(--secondary-color);
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    color: #6c757d;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+/*
+      ============================================
+      Navbar
+      ============================================
+    */
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-brand i {
+    animation: spin-leaf 5s linear infinite;
+}
+
+@keyframes spin-leaf {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/*
+      ============================================
+      Hero Section - UPDATED
+      ============================================
+    */
+.hero-section {
+    /* Menggunakan gambar sebagai background */
+    background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1932&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Menambahkan lapisan gradien untuk efek pudar ke bawah */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(30, 81, 40, 0.2) 0%, rgba(30, 81, 40, 0.8) 80%, var(--secondary-color) 100%);
+    z-index: 1;
+}
+
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* Menaikkan z-index agar di atas gradien */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    /* Menaikkan z-index agar di atas particles.js */
+    z-index: 3;
+}
+
+
+.hero-section h1 {
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section .lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/*
+      ============================================
+      Card Styles
+      ============================================
+    */
+.custom-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.custom-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/*
+      ============================================
+      Tentang Desa 
+      ============================================
+    */
+.tentang-img {
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+}
+
+.info-card {
+    background-color: #ffffff;
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+/*
+      ============================================
+      Data Desa
+      ============================================
+    */
+.data-card .card-body {
+    padding: 2rem 1rem;
+}
+
+.data-card .fw-bold {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+}
+
+.progress-chart .progress {
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* MODIFICATION: Added transition for animation */
+.progress-chart .progress-bar {
+    transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.progress-chart .progress-bar span {
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/*
+      ============================================
+      Potensi Desa 
+      ============================================
+    */
+.potensi-card .card-body {
+    padding: 2rem;
+}
+
+.potensi-card h5 {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/*
+  ============================================
+  Aparatur Desa (PERBAIKAN)
+  ============================================
+*/
+.aparatur-card {
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    padding-top: 75px;
+}
+
+.aparatur-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.aparatur-card .card-body {
+    padding-top: 1rem;
+}
+
+.aparatur-card .card-title {
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.aparatur-card .card-subtitle {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.social-links-aparatur a {
+    color: var(--secondary-color);
+    margin: 0 8px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links-aparatur a:hover {
+    color: var(--primary-color);
+}
+
+
+/*
+  ============================================
+  Berita & Agenda (MODIFIKASI: Interaktif & Modern)
+  ============================================
+*/
+.berita-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    /* Pastikan background putih */
+}
+
+/* Wadah untuk gambar agar efek zoom tidak keluar dari kartu */
+.berita-card .card-img-container {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.berita-card .card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Efek zoom pada gambar saat kartu di-hover */
+.berita-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+/* Styling untuk badge tanggal */
+.berita-card .berita-date {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.berita-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Membuat card body mengisi ruang tersisa */
+    padding: 1.5rem;
+}
+
+.berita-card .card-title {
+    color: var(--secondary-color);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+/* Warna judul berubah saat di-hover */
+.berita-card:hover .card-title {
+    color: var(--primary-color);
+}
+
+.berita-card .card-text {
+    flex-grow: 1;
+    /* Mendorong tombol ke bawah */
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    /* Jarak antara teks dan tombol */
+}
+
+.berita-card .btn {
+    width: fit-content;
+    margin-top: auto;
+    /* Memastikan tombol selalu di bawah */
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Tombol berubah menjadi solid saat di-hover */
+.berita-card:hover .btn {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(78, 159, 61, 0.4);
+    transform: translateY(-2px);
+}
+
+/*
+  ============================================
+  Gallery
+  ============================================
+*/
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    height: 300px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: white;
+    padding: 3rem 1.5rem 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-overlay h5 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-overlay p {
+    margin-bottom: 0;
+}
+
+/*
+      ============================================
+      Memperbesar Gambar
+      ============================================
+    */
+.zoomable-image {
+    cursor: pointer;
+}
+
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#image-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#zoomed-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+#image-overlay.visible #zoomed-image {
+    transform: scale(1);
+}
+
+#close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+#close-button:hover {
+    color: #ddd;
+    transform: scale(1.1);
+}
+
+
+/*
+      ============================================
+      Contact & Footer
+      ============================================
+    */
+.contact-info .contact-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    width: 40px;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 60px 0 20px;
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+footer hr {
+    border-color: rgba(255, 255, 255, 0.2);
+}
