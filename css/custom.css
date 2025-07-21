@@ -288,14 +288,31 @@ body {
 
 /*
   ============================================
-  Aparatur Desa (PERBAIKAN)
+  Aparatur Desa - Lengkap dengan Responsive
   ============================================
 */
+#aparatur {
+    padding: 60px 0;
+    position: relative;
+}
+
 .aparatur-card {
     text-align: center;
     position: relative;
     overflow: visible;
-    padding-top: 75px;
+    padding-top: 100px;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(78, 159, 61, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.aparatur-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 .aparatur-card img {
@@ -303,54 +320,150 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    border: 6px solid #fff;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 5px solid #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     position: absolute;
     top: -75px;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.aparatur-card:hover img {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
 }
 
 .aparatur-card .card-body {
-    padding-top: 1rem;
+    padding: 30px 20px;
+    padding-top: 15px;
 }
 
 .aparatur-card .card-title {
     color: var(--secondary-color);
     font-weight: 700;
     margin-top: 15px;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
 }
 
 .aparatur-card .card-subtitle {
     color: var(--primary-color);
     font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.aparatur-card .card-text {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.social-links-aparatur {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .social-links-aparatur a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: rgba(78, 159, 61, 0.1);
     color: var(--secondary-color);
-    margin: 0 8px;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
 .social-links-aparatur a:hover {
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .aparatur-card {
+        padding-top: 90px;
+    }
+    
+    .aparatur-card img {
+        width: 130px;
+        height: 130px;
+        top: -65px;
+    }
+}
+
+@media (max-width: 768px) {
+    #aparatur {
+        padding: 40px 0;
+    }
+    
+    .aparatur-card {
+        padding-top: 80px;
+        margin-top: 60px;
+    }
+    
+    .aparatur-card img {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+    }
+    
+    .row.g-5 {
+        --bs-gutter-y: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .aparatur-card {
+        padding-top: 70px;
+        margin-top: 50px;
+    }
+    
+    .aparatur-card img {
+        width: 100px;
+        height: 100px;
+        top: -50px;
+        border-width: 4px;
+    }
+    
+    .aparatur-card .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .social-links-aparatur a {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
 }
 
 
 /*
   ============================================
-  Berita & Agenda (MODIFIKASI: Interaktif & Modern)
+  Berita & Agenda (Perbaikan dan Penyempurnaan)
   ============================================
 */
 .berita-card {
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    /* Pastikan background putih */
+    border: 1px solid rgba(30, 81, 40, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
 
-/* Wadah untuk gambar agar efek zoom tidak keluar dari kartu */
+.berita-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(30, 81, 40, 0.15);
+    border-color: rgba(78, 159, 61, 0.3);
+}
+
+/* Wadah untuk gambar dengan efek overlay */
 .berita-card .card-img-container {
     height: 200px;
     position: relative;
@@ -363,15 +476,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.6s ease, filter 0.4s ease;
 }
 
-/* Efek zoom pada gambar saat kartu di-hover */
+/* Efek zoom dan brightness pada gambar saat hover */
 .berita-card:hover .card-img-top {
-    transform: scale(1.1);
+    transform: scale(1.08);
+    filter: brightness(1.05);
 }
 
-/* Styling untuk badge tanggal */
+/* Styling untuk badge tanggal dengan gradien */
 .berita-card .berita-date {
     position: absolute;
     top: 1rem;
@@ -379,53 +493,171 @@ body {
     z-index: 1;
     font-size: 0.75rem;
     font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 0.35rem 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badge khusus untuk agenda */
+.berita-card .bg-danger {
+    background: linear-gradient(135deg, #ff6b6b, #ff2d2d) !important;
 }
 
 .berita-card .card-body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    /* Membuat card body mengisi ruang tersisa */
     padding: 1.5rem;
+    background-color: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .berita-card .card-title {
     color: var(--secondary-color);
     font-weight: 700;
     transition: color 0.3s ease;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
 }
 
-/* Warna judul berubah saat di-hover */
 .berita-card:hover .card-title {
     color: var(--primary-color);
 }
 
 .berita-card .card-text {
     flex-grow: 1;
-    /* Mendorong tombol ke bawah */
     color: #555;
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    /* Jarak antara teks dan tombol */
+    font-size: 0.95rem;
 }
 
-.berita-card .btn {
-    width: fit-content;
-    margin-top: auto;
-    /* Memastikan tombol selalu di bawah */
-    border-color: var(--primary-color);
+/* Tombol dengan efek modern */
+.berita-card .btn-outline-success {
+    border: 2px solid var(--primary-color);
     color: var(--primary-color);
     font-weight: 600;
-    transition: all 0.3s ease;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    align-self: flex-start;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-/* Tombol berubah menjadi solid saat di-hover */
-.berita-card:hover .btn {
-    background-color: var(--primary-color);
+.berita-card .btn-outline-success::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    transition: width 0.4s ease;
+    z-index: -1;
+    border-radius: 50px;
+}
+
+.berita-card:hover .btn-outline-success {
     color: white;
-    box-shadow: 0 4px 12px rgba(78, 159, 61, 0.4);
-    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(78, 159, 61, 0.3);
+}
+
+.berita-card:hover .btn-outline-success::before {
+    width: 100%;
+}
+
+/* Style untuk offcanvas berita */
+.offcanvas-bottom {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(30, 81, 40, 0.1);
+    padding: 1.5rem;
+}
+
+.offcanvas-title {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* ============================================
+   Bottom Sheet Image Sizing
+   ============================================ */
+.offcanvas-body img {
+    max-height: 400px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Untuk tampilan landscape/desktop lebar */
+@media (min-width: 992px) and (orientation: landscape) {
+    .offcanvas-body img {
+        max-height: 300px;
+        max-width: 60%;
+    }
+}
+
+/* Untuk tampilan mobile portrait */
+@media (max-width: 576px) {
+    .offcanvas-body img {
+        max-height: 250px;
+        width: 100%;
+    }
+}
+
+/* Animasi smooth untuk offcanvas */
+.offcanvas-bottom {
+    transition: transform 0.3s ease-out;
+}
+
+.offcanvas-body {
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.offcanvas-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.offcanvas-body img {
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.offcanvas-body p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.offcanvas-body .text-muted {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.offcanvas-body ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.offcanvas-body ul li {
+    margin-bottom: 0.5rem;
 }
 
 /*
@@ -539,16 +771,237 @@ body {
 }
 
 
-/*
-      ============================================
-      Contact & Footer
-      ============================================
-    */
-.contact-info .contact-icon {
-    font-size: 2rem;
+/* ============================================
+   CONTACT SECTION STYLES
+   ============================================ */
+
+#kontak {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+    position: relative;
+}
+
+#kontak .section-title {
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#kontak .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+#kontak .section-subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Contact Card Container */
+#kontak .rounded {
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+
+#kontak .shadow-sm {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease;
+}
+
+#kontak .shadow-sm:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-5px);
+}
+
+/* Contact Information Section */
+.contact-info {
+    padding: 25px;
+    background-color: rgba(78, 159, 61, 0.05);
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.contact-info h4 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.contact-info h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.contact-info-item i {
     color: var(--primary-color);
+    font-size: 1.2rem;
     margin-right: 15px;
-    width: 40px;
+    margin-top: 3px;
+    min-width: 25px;
+    text-align: center;
+}
+
+.contact-info-item strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Form Styles */
+#contactForm label {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    display: block;
+}
+
+#contactForm .form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s;
+    margin-bottom: 5px;
+}
+
+#contactForm .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(78, 159, 61, 0.25);
+}
+
+#contactForm textarea.form-control {
+    min-height: 150px;
+}
+
+/* Submit Button */
+#contactForm .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    padding: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+#contactForm .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+#sendConfirmation .modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+}
+
+#sendConfirmation .modal-header {
+    background-color: var(--primary-color);
+    border-bottom: none;
+    padding: 20px;
+}
+
+#sendConfirmation .modal-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+#sendConfirmation .btn-close-white {
+    filter: invert(1);
+}
+
+#sendConfirmation .modal-body {
+    padding: 30px;
+}
+
+#sendConfirmation .btn {
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 50px;
+    min-width: 200px;
+    transition: all 0.3s;
+    margin: 5px;
+}
+
+#sendConfirmation .btn i {
+    margin-right: 8px;
+}
+
+#sendConfirmation .btn-success {
+    background-color: #25D366;
+    border-color: #25D366;
+}
+
+#sendConfirmation .btn-success:hover {
+    background-color: #128C7E;
+    border-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    #kontak {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #kontak .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .contact-info-item {
+        flex-direction: column;
+    }
+    
+    .contact-info-item i {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    #kontak {
+        padding: 50px 0;
+    }
+    
+    #kontak .section-title {
+        font-size: 1.6rem;
+    }
+    
+    #sendConfirmation .btn {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    #sendConfirmation .d-flex {
+        flex-direction: column;
+    }
 }
 
 footer {
