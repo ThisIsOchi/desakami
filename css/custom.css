@@ -771,119 +771,30 @@ body {
 }
 
 
-/* ============================================
-   CONTACT SECTION STYLES
-   ============================================ */
-
-#kontak {
-    background-color: #f8f9fa;
-    padding: 80px 0;
-    position: relative;
-}
-
-#kontak .section-title {
-    color: var(--secondary-color);
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-#kontak .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
-}
-
-#kontak .section-subtitle {
-    color: #6c757d;
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-/* Contact Card Container */
-#kontak .rounded {
-    border-radius: 15px !important;
-    overflow: hidden;
-}
-
-#kontak .shadow-sm {
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
-    transition: all 0.3s ease;
-}
-
-#kontak .shadow-sm:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
-    transform: translateY(-5px);
-}
-
-/* Contact Information Section */
-.contact-info {
-    padding: 25px;
-    background-color: rgba(78, 159, 61, 0.05);
-    border-radius: 12px;
-    margin-bottom: 30px;
-}
-
-.contact-info h4 {
-    color: var(--secondary-color);
-    font-weight: 700;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-.contact-info h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background-color: var(--primary-color);
-}
-
-.contact-info-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.contact-info-item i {
+/*
+      ============================================
+      Contact & Footer
+      ============================================
+    */
+.contact-info .contact-icon {
+    font-size: 2rem;
     color: var(--primary-color);
-    font-size: 1.2rem;
     margin-right: 15px;
-    margin-top: 3px;
-    min-width: 25px;
-    text-align: center;
+    width: 40px;
 }
 
-.contact-info-item strong {
-    color: var(--secondary-color);
-    font-weight: 600;
-}
-
-/* Form Styles */
+/* Contact Form Styles */
 #contactForm label {
     font-weight: 600;
     color: var(--secondary-color);
-    margin-bottom: 8px;
-    display: block;
+    margin-bottom: 0.5rem;
 }
 
 #contactForm .form-control {
     border-radius: 8px;
-    padding: 12px 15px;
-    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
     transition: all 0.3s;
-    margin-bottom: 5px;
 }
 
 #contactForm .form-control:focus {
@@ -891,117 +802,19 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(78, 159, 61, 0.25);
 }
 
-#contactForm textarea.form-control {
-    min-height: 150px;
-}
-
-/* Submit Button */
-#contactForm .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    padding: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    font-size: 1rem;
-    margin-top: 10px;
-    transition: all 0.3s;
-}
-
-#contactForm .btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    transform: translateY(-2px);
-}
-
 /* Modal Styles */
-#sendConfirmation .modal-content {
-    border-radius: 15px;
-    overflow: hidden;
-    border: none;
-}
-
 #sendConfirmation .modal-header {
-    background-color: var(--primary-color);
     border-bottom: none;
-    padding: 20px;
-}
-
-#sendConfirmation .modal-title {
-    font-weight: 700;
-    font-size: 1.3rem;
-}
-
-#sendConfirmation .btn-close-white {
-    filter: invert(1);
-}
-
-#sendConfirmation .modal-body {
-    padding: 30px;
 }
 
 #sendConfirmation .btn {
-    font-weight: 600;
-    padding: 12px 25px;
+    min-width: 180px;
     border-radius: 50px;
-    min-width: 200px;
-    transition: all 0.3s;
-    margin: 5px;
+    padding: 0.5rem 1.5rem;
 }
 
 #sendConfirmation .btn i {
-    margin-right: 8px;
-}
-
-#sendConfirmation .btn-success {
-    background-color: #25D366;
-    border-color: #25D366;
-}
-
-#sendConfirmation .btn-success:hover {
-    background-color: #128C7E;
-    border-color: #128C7E;
-    transform: translateY(-2px);
-}
-
-/* Responsive Styles */
-@media (max-width: 992px) {
-    #kontak {
-        padding: 60px 0;
-    }
-}
-
-@media (max-width: 768px) {
-    #kontak .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .contact-info-item {
-        flex-direction: column;
-    }
-    
-    .contact-info-item i {
-        margin-bottom: 8px;
-    }
-}
-
-@media (max-width: 576px) {
-    #kontak {
-        padding: 50px 0;
-    }
-    
-    #kontak .section-title {
-        font-size: 1.6rem;
-    }
-    
-    #sendConfirmation .btn {
-        min-width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    #sendConfirmation .d-flex {
-        flex-direction: column;
-    }
+    font-size: 1.2rem;
 }
 
 footer {
